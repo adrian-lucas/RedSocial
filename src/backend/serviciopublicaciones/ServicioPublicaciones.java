@@ -47,9 +47,8 @@ public class ServicioPublicaciones {
 
         try{
             BufferedWriter escritor = new BufferedWriter(new FileWriter(ruta,true));
-            escritor.newLine();
-            escritor.write(publicacion);
-            escritor.close();
+            escritor.write(publicacion+"\n");
+            escritor.flush();
         }catch (Exception e){
             System.out.println("Error ServicioUsuarios.agregarUsuario(): "+e);
         }
