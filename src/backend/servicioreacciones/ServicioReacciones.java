@@ -30,13 +30,12 @@ public class ServicioReacciones {
     }
     public void agregarReaccion(int idPublicacion,int idUsuario,Emocion reaccion){
 
-        String agreagarReaccion = idPublicacion+","+reaccion+","+idUsuario;
+        String agreagarReaccion = idPublicacion+","+reaccion+","+idUsuario+"\n";
 
         try{
             BufferedWriter escritor = new BufferedWriter(new FileWriter(ruta,true));
-            escritor.newLine();
             escritor.write(agreagarReaccion);
-            escritor.close();
+            escritor.flush();
         }catch (Exception e){
             System.out.println("Error ServicioUsuarios.agregarReaccion(): "+e);
         }

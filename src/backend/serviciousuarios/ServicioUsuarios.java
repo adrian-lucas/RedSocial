@@ -41,13 +41,12 @@ public class ServicioUsuarios {
     }
     private int guardar(String nombreUsuario){
         int id = obtenerId();
-        String usuario = id+","+nombreUsuario;
+        String usuario = id+","+nombreUsuario+"\n";
 
         try{
             BufferedWriter escritor = new BufferedWriter(new FileWriter(ruta,true));
-            escritor.newLine();
             escritor.write(usuario);
-            escritor.close();
+            escritor.flush();
         }catch (Exception e){
             System.out.println("Error ServicioUsuarios.agregarUsuario(): "+e);
         }
